@@ -1,0 +1,17 @@
+version: 1.0.{build}
+pull_requests:
+  do_not_increment_build_number: true
+clone_depth: 1
+environment:
+  EnableNuGetPackageRestore: true
+before_build:
+- ps: dotnet restore
+build:
+  verbosity: minimal
+notifications:
+- provider: GitHubPullRequest
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
+cache:
+- %userprofile%\.nuget\packages -> source\BookmarkSync\project.json
