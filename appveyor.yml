@@ -13,5 +13,5 @@ notifications:
   on_build_success: true
   on_build_failure: true
   on_build_status_changed: true
-cache:
-- '%userprofile%\.nuget\packages -> source\BookmarkSync\project.json'
+#cache:
+#- '%userprofile%\.nuget\packages -> source\BookmarkSync\project.json'
