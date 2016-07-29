@@ -2,8 +2,7 @@ version: 1.0.{build}
 pull_requests:
   do_not_increment_build_number: true
 clone_depth: 1
-environment:
-  EnableNuGetPackageRestore: true
+configuration: Release
 before_build:
 - ps: dotnet restore
 build:
