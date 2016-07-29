@@ -9,7 +9,7 @@ build:
   verbosity: minimal
 test_script:
 - ps: >-
-    cd BookmarkSync.Tests
+    cd source\BookmarkSync.Tests
 
     dotnet test
 notifications:
