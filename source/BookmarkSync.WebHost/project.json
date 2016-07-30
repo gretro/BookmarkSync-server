@@ -43,14 +43,16 @@
 
   "publishOptions": {
     "include": [
-      "wwwroot",
-      "Views",
-      "Areas/**/Views",
-      "appsettings.json",
-      "web.config"
+        "wwwroot",
+        "Views",
+        "Areas/**/Views",
+        "appsettings.json",
+        "web.config"
+    ],
+    "exclude": [
+        "_Published"
     ]
   },
-
   "scripts": {
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }

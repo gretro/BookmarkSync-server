@@ -13,11 +13,23 @@ before_build:
 - ps: dotnet restore
 build:
   verbosity: minimal
+after_build:
+- ps: >-
+    .\source\BookmarkSync.WebHost\Build-Package.ps1
 test_script:
 - ps: >-
-    cd Source\BookmarkSync.Tests
+    Push-Location Source\BookmarkSync.Tests
 
-    dotnet test
+    try {
+      dotnet test
+    }
+    finally {
+      Pop-Location
+    }
+    
+artifacts:
+- path: source\BookmarkSync.WebHost\_Published
+  name: WebHost
 notifications:
 - provider: GitHubPullRequest
   on_build_success: true
