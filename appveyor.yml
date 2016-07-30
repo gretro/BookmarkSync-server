@@ -1,15 +1,21 @@
-version: 1.0.{build}
+version: 1.0.0-{branch}.{build}
 pull_requests:
   do_not_increment_build_number: true
 configuration: Release
 clone_depth: 1
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 before_build:
 - ps: dotnet restore
 build:
   verbosity: minimal
 test_script:
 - ps: >-
-    cd source\BookmarkSync.Tests
+    cd Source\BookmarkSync.Tests
 
     dotnet test
 notifications:
